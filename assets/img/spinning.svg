@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="320" viewBox="0 0 500 320">
+  <defs><linearGradient id="a" x1="0" x2="1"><stop stop-color="#2E1A47"/><stop offset="1" stop-color="#F2B705"/></linearGradient></defs>
+  <rect width="500" height="320" rx="26" fill="url(#a)"/>
+  <circle cx="385" cy="82" r="62" fill="#fff" opacity=".18"/>
+  <circle cx="120" cy="230" r="96" fill="#fff" opacity=".12"/>
+  <text x="35" y="170" font-family="Arial" font-size="44" font-weight="800" fill="#fff">spinning</text>
+  <text x="35" y="210" font-family="Arial" font-size="18" fill="#fff">SportClub</text>
+</svg>

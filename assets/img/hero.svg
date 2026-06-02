@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#2E1A47"/><stop offset="1" stop-color="#6D2AA4"/></linearGradient></defs>
+  <rect width="900" height="600" rx="40" fill="url(#g)"/>
+  <circle cx="690" cy="190" r="130" fill="#F2B705" opacity=".18"/>
+  <circle cx="210" cy="430" r="180" fill="#fff" opacity=".06"/>
+  <path d="M580 390c38-63 43-143 12-201 72 17 119 68 136 141 13 57-8 115-58 150-35 25-78 30-126 12 14-23 25-47 36-102z" fill="#F2B705" opacity=".9"/>
+  <path d="M450 470c78-44 118-127 91-205-14-42-44-77-82-100 12 51 2 99-30 141-48 63-43 113 21 164z" fill="#fff" opacity=".9"/>
+  <text x="70" y="150" font-family="Arial" font-size="56" font-weight="800" fill="#fff">Entrena hoy</text>
+  <text x="70" y="215" font-family="Arial" font-size="56" font-weight="800" fill="#F2B705">supera tus metas</text>
+  <text x="72" y="270" font-family="Arial" font-size="24" fill="#fff">Tecnología, reservas y progreso en un solo lugar.</text>
+</svg>

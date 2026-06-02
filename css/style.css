@@ -1,0 +1,220 @@
+/* =====================================================
+   SportClub · Estilos globales de la Landing Page
+   HTML5 + CSS3 + Bootstrap 5
+   Identidad corporativa: morado #2E1A47 y dorado #F2B705
+   Buenas prácticas:
+   - Variables CSS para centralizar colores corporativos.
+   - Tipografías condensadas deportivas (Anton + Manrope).
+   - Diseño responsivo (mobile-first) para GitHub Pages.
+   - Comentarios explicativos por sección.
+   ===================================================== */
+
+:root{
+  --club:#2E1A47;          /* morado corporativo */
+  --club-deep:#1c0f2e;     /* morado profundo (fondos) */
+  --club-700:#3d2360;
+  --gold:#F2B705;          /* dorado corporativo */
+  --gold-deep:#d49b00;
+  --ink:#15101f;
+  --text:#272233;
+  --muted:#6f6880;
+  --paper:#f6f3fb;
+  --white:#ffffff;
+  --line:rgba(46,26,71,.12);
+  --shadow:0 24px 60px -24px rgba(28,15,46,.55);
+  --shadow-sm:0 12px 30px -16px rgba(28,15,46,.4);
+  --r:22px;
+  --font-display:'Anton',-apple-system,sans-serif;
+  --font-body:'Manrope',-apple-system,'Segoe UI',sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  color:var(--text);
+  background:var(--white);
+  margin:0;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none}
+h1,h2,h3,h4,.display-font{font-family:var(--font-display);font-weight:400;letter-spacing:.5px;text-transform:uppercase}
+
+/* Selección de texto en dorado */
+::selection{background:var(--gold);color:var(--club)}
+
+/* ===== Logo ===== */
+.sport-logo{max-width:210px;height:auto;display:block}
+.sport-logo--sm{max-width:160px}
+
+/* ===== Navbar ===== */
+.navbar{
+  background:var(--club-deep)!important;
+  border-bottom:1px solid rgba(242,183,5,.25);
+  box-shadow:0 10px 30px -18px rgba(0,0,0,.8);
+  padding:.55rem 0;
+}
+.navbar .nav-link{
+  font-family:var(--font-body);
+  font-weight:800;
+  font-size:.95rem;
+  color:#e8e2f2!important;
+  letter-spacing:.3px;
+  position:relative;
+  padding:.55rem .2rem;
+}
+.navbar .nav-link::after{
+  content:"";position:absolute;left:0;bottom:.2rem;height:2px;width:0;
+  background:var(--gold);transition:width .28s ease;
+}
+.navbar .nav-link:hover::after,.navbar .nav-link.active::after{width:100%}
+.navbar .nav-link:hover{color:var(--gold)!important}
+.navbar-toggler{border:1px solid rgba(242,183,5,.5)}
+.navbar-toggler:focus{box-shadow:0 0 0 .2rem rgba(242,183,5,.35)}
+.navbar-toggler-icon{
+  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23F2B705' stroke-width='2.5' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ===== Botones corporativos ===== */
+.btn-sport{
+  background:var(--gold);color:var(--club);
+  font-weight:900;letter-spacing:.4px;border:none;border-radius:999px;
+  padding:13px 30px;box-shadow:0 14px 28px -12px rgba(242,183,5,.7);
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+}
+.btn-sport:hover{background:#ffc721;color:var(--club);transform:translateY(-2px);box-shadow:0 18px 34px -12px rgba(242,183,5,.85)}
+.btn-outline-sport{
+  border:2px solid rgba(255,255,255,.7);color:#fff;background:transparent;
+  border-radius:999px;font-weight:800;padding:11px 26px;transition:all .2s ease;
+}
+.btn-outline-sport:hover{background:#fff;color:var(--club);border-color:#fff}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;
+  min-height:92vh;
+  display:flex;align-items:center;
+  color:#fff;
+  background:
+    radial-gradient(900px 600px at 78% 12%,rgba(242,183,5,.18),transparent 60%),
+    radial-gradient(700px 500px at 8% 90%,rgba(112,60,170,.4),transparent 55%),
+    linear-gradient(140deg,var(--club-deep) 0%,var(--club) 55%,#40246a 100%);
+  overflow:hidden;
+}
+/* franja diagonal dorada decorativa */
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(115deg,transparent 0 38px,rgba(255,255,255,.025) 38px 39px);
+  pointer-events:none;
+}
+.hero::after{
+  content:"";position:absolute;right:-120px;bottom:-120px;width:520px;height:520px;
+  border:60px solid rgba(242,183,5,.08);border-radius:50%;pointer-events:none;
+}
+.hero .container{position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(242,183,5,.14);border:1px solid rgba(242,183,5,.5);
+  color:var(--gold);font-weight:800;font-size:.82rem;letter-spacing:1.5px;
+  text-transform:uppercase;padding:.5rem 1rem;border-radius:999px;
+}
+.hero h1{
+  font-size:clamp(2.8rem,7vw,5.6rem);line-height:.95;margin:1.2rem 0;
+  text-shadow:0 8px 30px rgba(0,0,0,.35);
+}
+.hero h1 .accent{color:var(--gold)}
+.hero p{font-size:1.18rem;color:#d9d2e8;max-width:560px;font-weight:500}
+.hero-stats{display:flex;gap:2.4rem;margin-top:2.6rem;flex-wrap:wrap}
+.hero-stats .num{font-family:var(--font-display);font-size:2.4rem;color:var(--gold);line-height:1}
+.hero-stats .lbl{font-size:.8rem;letter-spacing:1px;text-transform:uppercase;color:#bfb6d4}
+
+/* ===== Títulos de sección ===== */
+.section-tag{color:var(--gold-deep);font-weight:900;letter-spacing:2px;text-transform:uppercase;font-size:.82rem}
+.section-title{color:var(--club);font-size:clamp(2rem,4vw,3rem);margin-top:.3rem}
+.section-title .accent{color:var(--gold-deep)}
+
+/* ===== Tarjetas ===== */
+.sport-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  box-shadow:var(--shadow-sm);height:100%;padding:30px 26px;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  position:relative;overflow:hidden;
+}
+.sport-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(242,183,5,.6)}
+.sport-card h3{color:var(--club);font-size:1.45rem;margin:.6rem 0 .5rem}
+.sport-card p{color:var(--muted);margin:0;font-weight:500}
+.icon-box{
+  width:62px;height:62px;border-radius:18px;
+  background:linear-gradient(135deg,var(--club),var(--club-700));
+  color:var(--gold);display:grid;place-items:center;font-size:1.7rem;
+  box-shadow:0 10px 22px -10px rgba(46,26,71,.6);
+}
+
+/* ===== Planes ===== */
+.plans-section{background:var(--paper)}
+.plan-card{display:flex;flex-direction:column}
+.plan-card .plan-name{color:var(--gold-deep);font-size:1.6rem}
+.plan-price{font-family:var(--font-display);font-size:2.8rem;color:var(--club);line-height:1;margin:.3rem 0 1rem}
+.plan-price small{font-family:var(--font-body);font-size:.95rem;color:var(--muted);font-weight:700}
+.plan-feature{display:flex;gap:.6rem;align-items:flex-start;margin:.55rem 0;color:var(--text);font-weight:600;font-size:.97rem}
+.plan-feature i{color:#16a34a;margin-top:2px}
+.plan-card .btn-sport{margin-top:auto}
+/* Plan destacado */
+.plan-card.featured{
+  background:linear-gradient(160deg,var(--club),var(--club-700));border:none;
+  color:#fff;transform:scale(1.03);
+}
+.plan-card.featured:hover{transform:scale(1.03) translateY(-6px)}
+.plan-card.featured .plan-price,.plan-card.featured .plan-name{color:var(--gold)}
+.plan-card.featured .plan-feature{color:#e9e3f5}
+.plan-card.featured .plan-price small{color:#cfc6e4}
+.ribbon{
+  position:absolute;top:18px;right:-42px;transform:rotate(45deg);
+  background:var(--gold);color:var(--club);font-weight:900;font-size:.72rem;
+  letter-spacing:1px;padding:6px 50px;text-transform:uppercase;
+}
+
+/* ===== Sobre el club ===== */
+.about-box{
+  background:linear-gradient(150deg,var(--club-deep),var(--club));color:#fff;
+  border-radius:30px;padding:clamp(28px,5vw,52px);box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+}
+.about-box::after{content:"";position:absolute;left:-80px;top:-80px;width:260px;height:260px;border:50px solid rgba(242,183,5,.07);border-radius:50%}
+.about-box .section-title{color:#fff}
+.about-pill{background:rgba(242,183,5,.14);border:1px solid rgba(242,183,5,.4);border-radius:16px;padding:18px 20px;height:100%}
+.about-pill h4{color:var(--gold);font-size:1.15rem;margin-bottom:.4rem}
+.about-pill p{color:#ddd6ea;margin:0;font-weight:500}
+
+/* ===== Footer ===== */
+.footer{background:var(--club-deep);color:#cfc6e4;border-top:3px solid var(--gold)}
+.footer a{color:#cfc6e4}
+.footer a:hover{color:var(--gold)}
+.social a{
+  width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);
+  border:1px solid rgba(242,183,5,.4);color:var(--gold);
+  display:inline-grid;place-items:center;font-size:1.1rem;transition:all .2s ease;
+}
+.social a:hover{background:var(--gold);color:var(--club);transform:translateY(-3px)}
+
+/* ===== Animación de entrada ===== */
+@keyframes riseIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;animation:riseIn .7s cubic-bezier(.2,.7,.2,1) forwards}
+.d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.31s}.d4{animation-delay:.44s}
+@media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1}}
+
+/* ===== Responsivo (móvil) ===== */
+@media (max-width:991px){
+  .hero{min-height:auto;padding:120px 0 80px;text-align:center}
+  .hero p{margin-inline:auto}
+  .hero-stats{justify-content:center;gap:1.8rem}
+  .hero .d-flex.gap-3{justify-content:center}
+}
+@media (max-width:575px){
+  .sport-logo{max-width:172px}
+  .plan-card.featured{transform:none}
+  .plan-card.featured:hover{transform:translateY(-6px)}
+  .hero-stats{gap:1.3rem}
+  .hero-stats .num{font-size:2rem}
+}
