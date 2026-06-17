@@ -1,0 +1,85 @@
+/* Ajustes compartidos para los modulos conectados a API. */
+.message[hidden] {
+  display: none !important;
+}
+
+.message {
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.message.error {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.message.success {
+  background: #dcfce7;
+  color: #0f766e;
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: #dc3545;
+}
+
+.role-badge {
+  border-radius: 999px;
+  font-size: .78rem;
+  padding: .45rem .7rem;
+  text-transform: uppercase;
+}
+
+.role-user {
+  background: #198754;
+}
+
+.role-coach {
+  background: #0d6efd;
+}
+
+.role-admin {
+  background: #6f1d8f;
+}
+
+.section-title {
+  color: var(--club);
+}
+
+.table-responsive {
+  border-radius: 12px;
+}
+
+.profile-avatar {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(242, 183, 5, .18);
+  color: var(--club);
+  font-size: 2.4rem;
+}
+
+.readonly-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  border-radius: 999px;
+  padding: .4rem .75rem;
+  background: rgba(46, 26, 71, .09);
+  color: var(--club);
+  font-weight: 800;
+}
+
+.admin-actions {
+  min-width: 178px;
+}
+
+@media (max-width: 768px) {
+  .table-responsive {
+    font-size: .9rem;
+  }
+}

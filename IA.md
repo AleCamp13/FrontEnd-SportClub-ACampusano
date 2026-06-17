@@ -1,35 +1,42 @@
-# Uso de Inteligencia Artificial en el proyecto SportClub
+# Uso de Inteligencia Artificial en SportClub Evaluacion 2
 
 ## Herramienta utilizada
 
-Se utilizó ChatGPT como apoyo para estructurar el proyecto, generar código base, integrar Bootstrap 5, ordenar los módulos solicitados en la pauta y documentar el código con comentarios de buenas prácticas.
+Se utilizo ChatGPT como apoyo para transformar el proyecto SportClub desde una version estatica a una version Front End conectada a una API.
 
-## Qué se solicitó
+## Que se solicito
 
-Se solicitó crear una página web estática para SportClub con:
+Se solicito adaptar la carpeta `Eva 1` con las mejoras realizadas previamente en `Eva 3`, para cumplir con la evaluacion de desarrollo FrontEnd con API.
 
-- Landing Page moderna.
-- Login.
-- Registro de usuario.
-- Recuperación de contraseña.
-- Dashboard Usuario.
-- Dashboard Coach.
-- Dashboard Administrador.
-- Estructura de carpetas compatible con Visual Studio Code y GitHub Pages.
-- Comentarios en el código para reflejar buenas prácticas de Ingeniería en Informática.
-- Uso del logo oficial de SportClub.
-- Uso de Bootstrap para mejorar el diseño responsivo y profesional.
+## Cambios realizados
 
-## Qué se modificó manualmente
+- Fusion de las mejoras de `Eva 3` dentro de `Eva 1`.
+- Implementacion de consumo de API con `fetch()`.
+- Login conectado a `/api/auth/login`.
+- Registro conectado a `/api/auth/register`.
+- Redireccion segun rol.
+- CRUD de usuarios para administrador conectado a `/api/users`.
+- Modulo de perfil conectado a `/api/auth/me`.
+- Cambio de contrasena conectado a `/api/auth/me/password`.
+- Manejo de token JWT con `localStorage`.
+- Validaciones visuales en formularios sin uso de `alert()`.
+- Mensajes de error y exito en pantalla.
+- Tabla dinamica de usuarios con botones de editar y eliminar.
+- Badges visuales para roles `user`, `coach` y `admin`.
 
-El estudiante debe revisar y puede modificar manualmente:
+## Archivos principales modificados
 
-- Textos finales del sitio.
-- Datos de usuarios, reservas y clases.
-- Enlaces reales a redes sociales.
-- Ajustes menores de colores, imágenes y espaciados.
-- Commits progresivos antes de publicar en GitHub Pages.
+- `js/script.js`
+- `css/api.css`
+- `pages/login.html`
+- `pages/registro.html`
+- `pages/recuperar.html`
+- `pages/dashboard-admin.html`
+- `pages/dashboard-usuario.html`
+- `pages/dashboard-coach.html`
+- `pages/perfil.html`
+- `README.md`
 
-## Observación técnica
+## Observacion tecnica
 
-El proyecto es estático, por lo tanto no implementa autenticación real ni conexión a base de datos. Los formularios y dashboards funcionan como prototipo visual navegable.
+El backend no fue modificado. El frontend queda preparado para trabajar con la API local ubicada en `http://localhost:3000/api`.

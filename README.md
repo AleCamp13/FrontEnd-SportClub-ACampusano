@@ -1,44 +1,87 @@
+# SportClub - Evaluacion 2 Front End con API
 
-# Evaluación 1° Front End
+Aplicacion web de SportClub evolucionada desde la version estatica inicial a una version conectada a backend mediante `fetch()`, siguiendo la pauta de Desarrollo FrontEnd con API.
 
-Mencionar que al trabajar durante las clases comprendí como elaborar la pagina web.
-Pero al momento de trabajar sola, se me generaron muchas dudas y no fui exacta con los Prompts.
-Al igual que ir agregando los commits en git hub.
-Considero que se requiere de más tiempo para ir elaborando y comprendiendo mejor lo aprendido.
-A continuación señalo a grosso modo lo realizado.
+## Funcionalidades implementadas
 
-# SportClub · Tu mejor versión comienza hoy
-
-Sitio web estático (HTML5 + CSS3 + Bootstrap 5 + JS) con la identidad oficial 
-**SportClub**: logo corporativo y colores morado `#2E1A47` / dorado `#F2B705`.
-
-## Novedades de esta versión
-
-- Landing page de mejor calidad: hero deportivo, tarjetas de beneficios,
-  planes con plan destacado, sección "Sobre el Club" y footer, todo responsivo.
-- Tipografías deportivas
-- Logo oficial con fondo transparente, legible sobre morado y blanco.
-- **Login** con **selector de perfil**: botones para entrar a **Usuario**, **Coach**
-  y **Administrador** (Accesos rápidos para revisión).
-- 100% responsivo (móvil) y listo para **GitHub Pages**.
+- Login real con `POST /api/auth/login`.
+- Registro publico de usuarios con rol `user` usando `POST /api/auth/register`.
+- Guardado de token JWT en `localStorage`.
+- Redireccion segun rol:
+  - `user` -> `dashboard-usuario.html`
+  - `coach` -> `dashboard-coach.html`
+  - `admin` -> `dashboard-admin.html`
+- Proteccion basica de vistas por rol desde el frontend.
+- CRUD de usuarios para administrador:
+  - `GET /api/users`
+  - `GET /api/users/:id`
+  - `POST /api/users`
+  - `PUT /api/users/:id`
+  - `DELETE /api/users/:id`
+- Perfil de usuario logueado:
+  - `GET /api/auth/me`
+  - `PUT /api/auth/me`
+  - `PUT /api/auth/me/password`
+- Validaciones visuales sin `alert()`:
+  - campos obligatorios
+  - formato de email
+  - contrasena minima de 8 caracteres
+  - confirmacion de contrasena
+  - mensajes bajo inputs y bordes rojos
+- Tabla de usuarios con ID, nombre completo, email, rol, fecha de registro y acciones.
+- Roles mostrados como badges.
 
 ## Estructura
 
-/css        estilos (style.css, login.css, dashboards)
-/js         script.js
-/assets/img imágenes y logo
-/pages      login, registro, recuperar, dashboards
-/index.html landing page
+```text
+SportClub/
+  assets/img/
+  css/
+    api.css
+    dashboard-admin.css
+    dashboard-coach.css
+    dashboard-user.css
+    login.css
+    style.css
+  js/
+    script.js
+  pages/
+    dashboard-admin.html
+    dashboard-coach.html
+    dashboard-usuario.html
+    login.html
+    perfil.html
+    recuperar.html
+    registro.html
+  index.html
+```
 
+## Backend requerido
 
-## Abrir en Visual Studio Code
+Esta version espera que la API local este levantada en:
 
-1. Abrir la carpeta SportClub en VS Code.
+```text
+http://localhost:3000/api
+```
 
-## Publicar en GitHub Pages
+El backend de apoyo esta en:
 
-1. https://alecamp13.github.io/FrontEnd-SportClub-ACampusano/
+```text
+../FrontEnd-Backend-ClubDeportivo
+```
 
-## Sobre lo solicitado
-> Proyecto estático: los dashboards y formularios son un prototipo visual navegable
-> Sin autenticación real ni base de datos.
+Comandos sugeridos desde la carpeta del backend:
+
+```bash
+npm install
+npm run dev
+```
+
+Usuarios semilla documentados por el backend:
+
+```text
+usuario1@demo.cl / 12345678
+coach1@demo.cl / 12345678
+admin1@demo.cl / 12345678
+```
+
