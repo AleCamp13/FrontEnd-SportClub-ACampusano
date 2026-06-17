@@ -62,6 +62,7 @@ const state = {
 
 document.addEventListener('DOMContentLoaded', async () => {
   setupLogout();
+  setupBirthDateLimits();
   setupLoginForm();
   setupRegisterForm();
   setupRecoveryForm();
@@ -144,12 +145,22 @@ async function apiFetch(path, options = {}) {
     }
 
     throw {
-      message: result.message || 'Ocurrio un error al comunicarse con la API.',
+      message: getApiErrorMessage(result.message, result.errors),
       errors: result.errors || {}
     };
   }
 
   return result;
+}
+
+function getApiErrorMessage(message, errors = {}) {
+  const text = String(message || '').trim();
+
+  if (/payload/i.test(text) && Object.keys(errors || {}).length > 0) {
+    return 'Revisa los campos marcados en rojo antes de continuar.';
+  }
+
+  return text || 'Ocurrio un error al comunicarse con la API.';
 }
 
 function setupLogout() {
@@ -328,6 +339,13 @@ function setupRecoveryForm() {
     }
 
     showMessage('recoveryMessage', 'Si el correo existe, recibiras instrucciones para recuperar tu contrasena.', 'success');
+  });
+}
+
+function setupBirthDateLimits() {
+  const today = getTodayDateOnly();
+  document.querySelectorAll('input[name="birth_date"]').forEach((input) => {
+    input.max = today;
   });
 }
 
@@ -931,6 +949,12 @@ function validateUserForm(form, payload, options = {}) {
     isValid = false;
   }
 
+  const birthDateError = getBirthDateError(payload.birth_date);
+  if (birthDateError) {
+    setFieldError(form, 'birth_date', birthDateError);
+    isValid = false;
+  }
+
   if (!options.skipPassword) {
     const password = payload.password || '';
     const passwordWasTyped = Boolean(password);
@@ -1048,6 +1072,37 @@ function formatDate(value) {
 function normalizeDateInput(value) {
   if (!value) return '';
   return String(value).split('T')[0];
+}
+
+function getBirthDateError(value) {
+  if (!value) return '';
+
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    return 'La fecha debe tener un formato valido.';
+  }
+
+  const date = new Date(`${value}T00:00:00`);
+  if (Number.isNaN(date.getTime())) {
+    return 'La fecha ingresada no es valida.';
+  }
+
+  if (normalizeDateInput(date.toISOString()) !== value) {
+    return 'La fecha ingresada no es valida.';
+  }
+
+  if (value > getTodayDateOnly()) {
+    return 'La fecha de nacimiento no puede ser futura.';
+  }
+
+  return '';
+}
+
+function getTodayDateOnly() {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
 
 function capitalizeName(value = '') {
