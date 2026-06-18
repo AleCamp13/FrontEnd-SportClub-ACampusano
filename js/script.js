@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupRegisterForm();
   setupRecoveryForm();
   const guardedUser = await setupRoleGuard();
+  if (guardedUser) fillCurrentUserLabels(guardedUser);
 
   if (document.body.dataset.page === 'admin') {
     setupAdminPage();
@@ -889,7 +890,17 @@ function renderProfile(user) {
 
 function fillCurrentUserLabels(user) {
   setText('currentUserName', capitalizeName(user.full_name));
-  setHtml('currentUserRole', roleBadge(user.role));
+  const roleElement = document.getElementById('currentUserRole');
+  if (!roleElement) return;
+
+  if (roleElement.classList.contains('session-chip')) {
+    const labels = { user: 'Usuario', coach: 'Coach', admin: 'Admin' };
+    const icons = { user: 'bi-person-check', coach: 'bi-person-badge', admin: 'bi-shield-lock' };
+    roleElement.innerHTML = `<i class="bi ${icons[user.role] || 'bi-person'}"></i> ${labels[user.role] || user.role}`;
+    return;
+  }
+
+  roleElement.innerHTML = roleBadge(user.role);
 }
 
 function buildUserPayload(form, options = {}) {

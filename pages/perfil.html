@@ -7,16 +7,17 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/dashboard-user.css">
-  <link rel="stylesheet" href="../css/api.css">
+  <link rel="stylesheet" href="../css/api.css?v=20260617-header1">
 </head>
 <body data-page="profile" data-required-role="any">
   <header class="topbar py-3">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
       <a href="../index.html"><img class="sport-logo" src="../assets/img/logo.png" alt="Logo oficial SportClub"></a>
-      <div class="d-flex flex-wrap gap-3 align-items-center">
-        <span id="currentUserName" class="fw-bold"></span>
-        <span id="currentUserRole"></span>
-        <a class="js-logout" href="login.html"><i class="bi bi-box-arrow-right"></i> Cerrar Sesion</a>
+      <div class="topbar-actions">
+        <span id="currentUserName" class="session-name"></span>
+        <span id="currentUserRole" class="session-chip"><i class="bi bi-person-check"></i> Usuario</span>
+        <a class="topbar-link active" href="perfil.html"><i class="bi bi-person-circle"></i> Mi Perfil</a>
+        <a class="topbar-link js-logout" href="login.html"><i class="bi bi-box-arrow-right"></i> Cerrar Sesion</a>
       </div>
     </div>
   </header>
@@ -132,6 +133,6 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../js/script.js?v=20260617-pauta1"></script>
+  <script src="../js/script.js?v=20260617-header1"></script>
 </body>
 </html>
