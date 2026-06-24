@@ -85,3 +85,24 @@ coach1@demo.cl / 12345678
 admin1@demo.cl / 12345678
 ```
 
+## React - Clase 2 React Router
+
+La carpeta `react-sportclub` contiene la base solicitada para la clase de React:
+
+- `src/pages/Login.jsx`
+- `src/pages/Register.jsx`
+- `src/services/authService.js`
+- `src/components`
+- `src/layouts`
+- `src/routes`
+
+Comandos sugeridos:
+
+```bash
+cd react-sportclub
+npm install
+npm run dev
+```
+
+Esta version usa React Router, Bootstrap tradicional y mantiene las llamadas de login/registro separadas en `authService.js`.
+
